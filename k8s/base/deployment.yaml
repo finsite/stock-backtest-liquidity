@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-backtest-liquidity
+  labels:
+    app: stock-backtest-liquidity
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock-backtest-liquidity
+  template:
+    metadata:
+      labels:
+        app: stock-backtest-liquidity
+    spec:
+      containers:
+      - name: stock-backtest-liquidity
+        image: stock-backtest-liquidity:latest
+        ports:
+        - containerPort: 8080
