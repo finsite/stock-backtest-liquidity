@@ -16,7 +16,7 @@ spec:
         app: stock-backtest-liquidity
     spec:
       containers:
-      - name: stock-backtest-liquidity
-        image: stock-backtest-liquidity:latest
-        ports:
-        - containerPort: 8080
+        - name: stock-backtest-liquidity
+          image: stock-backtest-liquidity:latest
+          ports:
+            - containerPort: 8080
