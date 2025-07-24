@@ -21,3 +21,4 @@ urllib3>=2.5.0
 sqlalchemy>=2.0
 # Retry logic
 tenacity>=8.2.2,<9.0.0
+pillow==11.3.0
