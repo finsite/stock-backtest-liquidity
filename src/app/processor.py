@@ -1,5 +1,4 @@
-"""
-Processor module for stock-backtest-liquidity signal generation.
+"""Processor module for stock-backtest-liquidity signal generation.
 
 Validates input messages and computes a liquidity score to assess
 executability and trading risk.
@@ -15,8 +14,7 @@ logger = setup_logger(__name__)
 
 
 def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
-    """
-    Validate the incoming raw message against the expected schema.
+    """Validate the incoming raw message against the expected schema.
 
     Args:
         message (dict[str, Any]): Raw input message.
@@ -26,6 +24,7 @@ def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
 
     Raises:
         ValueError: If the input format is invalid.
+
     """
     logger.debug("🔍 Validating message schema...")
     if not validate_message_schema(message):
@@ -35,14 +34,14 @@ def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
 
 
 def compute_liquidity_signal(message: ValidatedMessage) -> dict[str, Any]:
-    """
-    Compute a liquidity score and signal based on volume and turnover.
+    """Compute a liquidity score and signal based on volume and turnover.
 
     Args:
         message (ValidatedMessage): The validated input data.
 
     Returns:
         dict[str, Any]: Message enriched with liquidity score and signal.
+
     """
     symbol = message.get("symbol", "UNKNOWN")
     avg_volume = int(message.get("avg_volume", 1_000_000))
